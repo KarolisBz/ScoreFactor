@@ -1,1 +1,13 @@
-<p>home works!</p>
+<div class="home-container">
+  <h1>Welcome, {{ username }}</h1>
+
+  <div class="score-box">
+    <h2>Score: {{ score }}</h2>
+  </div>
+
+  <div class="date-time">
+    <p>{{ currentTime }}</p>
+  </div>
+
+  <button routerLink="/leaderboard">View Leaderboard</button>
+</div>

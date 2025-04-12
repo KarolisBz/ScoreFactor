@@ -1,0 +1,21 @@
+.home-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.score-box {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.date-time {
+  font-size: 1.2rem;
+  color: gray;
+}
+
+button {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
