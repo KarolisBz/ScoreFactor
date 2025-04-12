@@ -1,1 +1,13 @@
-<p>leaderboard works!</p>
+<div class="leaderboard-container">
+  <h1>🏆 Leaderboard</h1>
+
+  <ul class="leaderboard-list">
+    <li *ngFor="let player of leaderboard; index as i" [class.top-player]="i === 0">
+      <span class="rank">#{{ i + 1 }}</span>
+      <span class="name">{{ player.username }}</span>
+      <span class="score">{{ player.score }}</span>
+    </li>
+  </ul>
+
+  <button routerLink="/">← Back to Home</button>
+</div>
