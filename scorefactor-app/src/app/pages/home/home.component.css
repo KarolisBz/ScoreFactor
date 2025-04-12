@@ -1,21 +1,76 @@
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f7f9fc;
+  margin: 0;
+  padding: 0;
+}
+
+/* Main container */
 .home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #c3ecf9 0%, #888791 100%);
+  background-attachment: fixed;
+}
+
+
+/* Username */
+.username {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Score Card */
+.score-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 30px 40px;
   text-align: center;
-  margin-top: 50px;
+  margin-bottom: 20px;
+  width: 80%;
+  max-width: 300px;
 }
 
-.score-box {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 20px;
-}
-
-.date-time {
+.label {
   font-size: 1.2rem;
-  color: gray;
+  color: #888;
+  margin-bottom: 10px;
 }
 
-button {
-  margin-top: 30px;
-  padding: 10px 20px;
+.score {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #00acc1;
+}
+
+/* Time Display */
+.time-box {
   font-size: 1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+/* Button */
+.leaderboard-btn {
+  background: #00acc1;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.leaderboard-btn:hover {
+  background: #008b9a;
 }

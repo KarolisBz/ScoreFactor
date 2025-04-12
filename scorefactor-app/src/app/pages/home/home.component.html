@@ -1,13 +1,14 @@
 <div class="home-container">
-  <h1>Welcome, {{ username }}</h1>
+  <h1 class="username">Welcome, {{ username }}</h1>
 
-  <div class="score-box">
-    <h2>Score: {{ score }}</h2>
+  <div class="score-card">
+    <h2 class="label">Your Score</h2>
+    <div class="score">{{ score }}</div>
   </div>
 
-  <div class="date-time">
+  <div class="time-box">
     <p>{{ currentTime }}</p>
   </div>
 
-  <button routerLink="/leaderboard">View Leaderboard</button>
+  <button class="leaderboard-btn" routerLink="/leaderboard">🏆 View Leaderboard</button>
 </div>
