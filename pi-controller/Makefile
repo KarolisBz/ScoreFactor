@@ -1,4 +1,4 @@
-# Compiler and flags
+# Compiler (64 ARM) and flags
 CC = aarch64-linux-gnu-gcc
 CFLAGS = -Wall -I./include
 
@@ -10,19 +10,24 @@ INCLUDE_DIR = include
 # Source files
 SRC_FILES = $(wildcard $(SRC_DIR)/*.c)
 OBJ_FILES = $(patsubst $(SRC_DIR)/%.c,$(BUILD_DIR)/%.o,$(SRC_FILES))
+RGB_LIB_DIR = $(CURDIR)/lib/rpi-rgb-led-matrix
 
 # Targets
 run: $(OBJ_FILES)
 	$(CC) $(OBJ_FILES) -o $(BUILD_DIR)/run
 
-# Create object files in build directory
+# Creating object files in build directory
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# Ensure build directory exists
+rpi_rgb_led_matrix:
+	$(MAKE) -C $(RGB_LIB_DIR)
+
+# Ensuring build directory exists
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
 
-# Clean up build files
+# Cleaning up build files and rpi matrix
 clean:
-	rm -f $(BUILD_DIR)/*.o run
+	$(MAKE) -C $(RGB_LIB_DIR) clean
+	rm -f $(BUILD_DIR)/*.o $(BUILD_DIR)/run
