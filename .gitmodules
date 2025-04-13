@@ -1,0 +1,9 @@
+[submodule "pi-controller/lib/pi-controller/lib/rpi-rgb-led-matrix"]
+	path = pi-controller/lib/pi-controller/lib/rpi-rgb-led-matrix
+	url = https://github.com/hzeller/rpi-rgb-led-matrix.git
+[submodule "pi-controller/lib/pi-controller/lib/WiringPi"]
+	path = pi-controller/lib/pi-controller/lib/WiringPi
+	url = https://github.com/WiringPi/WiringPi.git
+[submodule "pi-controller/lib/rpi-rgb-led-matrix"]
+	path = pi-controller/lib/rpi-rgb-led-matrix
+	url = https://github.com/hzeller/rpi-rgb-led-matrix.git
