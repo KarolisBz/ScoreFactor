@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "led_display.h": "c",
-        "pigpio.h": "c",
-        "pigs.h": "c",
-    }
-}
