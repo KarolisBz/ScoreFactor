@@ -10,3 +10,9 @@
 [submodule "pi-controller/lib/WiringPi"]
 	path = pi-controller/lib/WiringPi
 	url = https://github.com/WiringPi/WiringPi.git
+[submodule "pi-controller/lib/libgpiod"]
+	path = pi-controller/lib/libgpiod
+	url = https://github.com/brgl/libgpiod.git
+[submodule "pi-controller/lib/pigpio"]
+	path = pi-controller/lib/pigpio
+	url = https://github.com/joan2937/pigpio.git
