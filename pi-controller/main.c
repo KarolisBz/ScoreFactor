@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "add.h"
 
 int main() {
     printf("Welcome to Score Factor!\n");

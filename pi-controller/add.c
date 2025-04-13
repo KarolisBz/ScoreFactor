@@ -1,4 +1,6 @@
 // testing C multi files for final architecture
-int sum(int a, int b) {
+#include "add.h"
+
+int add(int a, int b) {
     return a + b;
 }
