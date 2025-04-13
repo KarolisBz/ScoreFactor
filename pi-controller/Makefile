@@ -1,5 +1,5 @@
 # Compiler and flags
-CC = gcc #arm-linux-gnueabihf-gcc
+CC = aarch64-linux-gnu-gcc
 CFLAGS = -Wall -I./include
 
 # Directories
