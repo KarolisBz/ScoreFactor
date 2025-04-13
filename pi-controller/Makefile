@@ -1,6 +1,9 @@
 # Compiler (64 ARM) and flags
-CC = aarch64-linux-gnu-gcc
-CFLAGS = -Wall -I./include
+CC = gcc # aarch64-linux-gnu-gcc
+CFLAGS = -Wall -I./include 
+
+# Linker flags (include pigpio and dependencies)
+LDFLAGS = -lpigpio -lrt -lpthread
 
 # Directories
 SRC_DIR = src
@@ -14,7 +17,7 @@ RGB_LIB_DIR = $(CURDIR)/lib/rpi-rgb-led-matrix
 
 # Targets
 run: $(OBJ_FILES)
-	$(CC) $(OBJ_FILES) -o $(BUILD_DIR)/run
+	$(CC) $(OBJ_FILES) -o $(BUILD_DIR)/run $(LDFLAGS)
 
 # Creating object files in build directory
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
