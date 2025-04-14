@@ -5,11 +5,13 @@
 
 
 #define MAX_GPIO 64 // reasonable limit for Raspberry Pi GPIO pins for sensors
+static uint32_t last_callback_time; // To store the last callback timestamp (currently not per sensor because they are digital, too sensative)
+const static int MAX_SCORE = 1000; // Maximum score for the game
+const static int ROUND_LENGTH = 120; // Length of the round in seconds
 
 typedef struct {
     int* total_score;
     int score_per_hit;
-    uint32_t last_callback_time; // To store the last callback timestamp
 } SensorContext;
 
 static SensorContext sensor_contexts[MAX_GPIO] = {0};  // zero-initialize all seensor posabilities
@@ -19,11 +21,16 @@ static void vibration_callback(int gpio, int level, uint32_t tick) {
     SensorContext* sc = &sensor_contexts[gpio];
 
     // If the level is high (indicating vibration detection) and debounce time has passed
-    if (level == PI_HIGH && (tick - sc->last_callback_time) > 1000000) { // 1 second debounce time
+    if (level == PI_HIGH && (tick - last_callback_time) > 1000000) { // 1 second debounce time
         // Update the score
-        *(sc->total_score) += sc->score_per_hit;
+        if (*(sc->total_score) + sc->score_per_hit > MAX_SCORE) {
+            *(sc->total_score) = MAX_SCORE; // Cap the score at MAX_SCORE
+        } else {
+            *(sc->total_score) += sc->score_per_hit;
+        }
+
         // Update last callback time
-        sc->last_callback_time = tick;
+        last_callback_time = tick;
 
         printf("Vibration detected!, Score: %d\n", *sc->total_score) ;
     }
@@ -37,7 +44,7 @@ void vibration_init(int gpio_pin, int* total_score, int score_per_hit) {
 
     sensor_contexts[gpio_pin].total_score = total_score;
     sensor_contexts[gpio_pin].score_per_hit = score_per_hit;
-    sensor_contexts[gpio_pin].last_callback_time = 0;
+    last_callback_time = 0;
 
     gpioSetMode(gpio_pin, PI_INPUT);
     gpioSetAlertFunc(gpio_pin, vibration_callback);

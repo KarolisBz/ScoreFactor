@@ -19,9 +19,6 @@ int main(int argc, char **argv) {
     // printing welcome message
     printf("Welcome to Score Factor!\n");
 
-    int sum = add(2, 3); // Example function call
-    printf("Sum: %d\n", sum); // Example output
-
     // init gpio pins
     if (gpioInitialise() < 0) {
         printf("Failed to initialize pigpio\n");
@@ -39,7 +36,7 @@ int main(int argc, char **argv) {
     printf("System running. Press Ctrl+C to stop.\n");
     display_score(&total_score, argc, argv); // Display score on LED matrix
 
-    // closing program
+    // graceful shutdown
     matrixCleanup();
     vibration_stop();
     gpioTerminate();

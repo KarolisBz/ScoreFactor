@@ -6,6 +6,8 @@
         "display.h": "c",
         "cstdlib": "cpp",
         "pigpio.h": "c",
-        "new": "cpp"
+        "new": "cpp",
+        "sstream": "c",
+        "regex": "c"
     }
 }
