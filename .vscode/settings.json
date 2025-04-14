@@ -8,6 +8,7 @@
         "pigpio.h": "c",
         "new": "cpp",
         "sstream": "c",
-        "regex": "c"
+        "regex": "c",
+        "led-matrix-c.h": "c"
     }
 }

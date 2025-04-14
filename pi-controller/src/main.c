@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include <unistd.h>
-#include "add.h"
+#include <stdlib.h>
 #include <pigpio.h>
+#include <signal.h>
 #include "display.h"
 #include "vibration_sensors.h"
 
@@ -12,9 +12,18 @@
 #define VIBRATION_PIN_S2 19  // Pin 35 on pi GPIO header (score 2)
 #define VIBRATION_PIN_S1 26  // Pin 37 on pi GPIO header (score 1)
 
+// interrupt signal
+volatile sig_atomic_t interrupted = 0;
+
+// function declarations
+void handle_interrupt(int sig);
+
 int main(int argc, char **argv) {
     // initalizing variables
     int total_score = 0;
+
+    // Register SIGINT (Ctrl+C)
+    signal(SIGINT, handle_interrupt);
 
     // printing welcome message
     printf("Welcome to Score Factor!\n");
@@ -34,11 +43,17 @@ int main(int argc, char **argv) {
 
     // keep program running
     printf("System running. Press Ctrl+C to stop.\n");
-    display_score(&total_score, argc, argv); // Display score on LED matrix
+    start_game(&total_score, argc, argv, &interrupted); // Display score on LED matrix
 
     // graceful shutdown
-    matrixCleanup();
-    vibration_stop();
     gpioTerminate();
-    return 0;
+    matrix_cleanup();
+    vibration_stop();
+    // exit with enough time for cleenup
+    exit(1);
+}
+
+// extra functions functionalites:
+void handle_interrupt(int sig) {
+    interrupted = 1;
 }

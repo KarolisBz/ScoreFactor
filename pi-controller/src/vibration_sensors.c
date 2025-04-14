@@ -5,9 +5,8 @@
 
 
 #define MAX_GPIO 64 // reasonable limit for Raspberry Pi GPIO pins for sensors
-static uint32_t last_callback_time; // To store the last callback timestamp (currently not per sensor because they are digital, too sensative)
+static uint32_t last_callback_time = 0; // To store the last callback timestamp (currently not per sensor because they are digital, too sensative)
 const static int MAX_SCORE = 1000; // Maximum score for the game
-const static int ROUND_LENGTH = 120; // Length of the round in seconds
 
 typedef struct {
     int* total_score;
@@ -44,7 +43,6 @@ void vibration_init(int gpio_pin, int* total_score, int score_per_hit) {
 
     sensor_contexts[gpio_pin].total_score = total_score;
     sensor_contexts[gpio_pin].score_per_hit = score_per_hit;
-    last_callback_time = 0;
 
     gpioSetMode(gpio_pin, PI_INPUT);
     gpioSetAlertFunc(gpio_pin, vibration_callback);
