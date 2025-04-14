@@ -6,7 +6,6 @@ CFLAGS = -Wall -I./include -I$(CURDIR)/lib/rpi-rgb-led-matrix/include
 # Linker flags (include pigpio and dependencies)
 LDFLAGS = -lpigpio -lrt -lpthread -L$(CURDIR)/lib/rpi-rgb-led-matrix/lib -lrgbmatrix
 
-
 # Directories
 SRC_DIR = src
 BUILD_DIR = build
