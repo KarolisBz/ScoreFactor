@@ -1,5 +1,6 @@
-import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 interface LeaderboardEntry {
   username: string;
   score: number;
@@ -7,7 +8,8 @@ interface LeaderboardEntry {
 
 @Component({
   selector: 'app-leaderboard',
-  imports: [NgFor],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './leaderboard.component.html',
   styleUrls: ['./leaderboard.component.css']
 })

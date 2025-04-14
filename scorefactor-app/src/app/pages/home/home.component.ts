@@ -6,11 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  username = 'Karolis'; // Change this later to be dynamic
+  username: string = '';
   score = 0;
   currentTime: string = '';
 
   ngOnInit(): void {
+    this.username = localStorage.getItem('username') || 'Player';
+    
     this.updateTime();
     setInterval(() => this.updateTime(), 1000);
 

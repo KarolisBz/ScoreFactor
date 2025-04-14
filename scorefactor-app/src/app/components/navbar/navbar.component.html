@@ -1,7 +1,8 @@
 <nav class="navbar">
   <div class="nav-title">ScoreFactor</div>
   <div class="nav-links">
-    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/home" routerLinkActive="active">Home</a>
     <a routerLink="/leaderboard" routerLinkActive="active">Leaderboard</a>
+    <button class="logout-btn" (click)="logout()">Logout</button>
   </div>
 </nav>
