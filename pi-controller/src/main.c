@@ -12,7 +12,7 @@
 #define VIBRATION_PIN_S2 19  // Pin 35 on pi GPIO header (score 2)
 #define VIBRATION_PIN_S1 26  // Pin 37 on pi GPIO header (score 1)
 
-int main() {
+int main(int argc, char **argv) {
     // initalizing variables
     int total_score = 0;
 
@@ -37,7 +37,7 @@ int main() {
 
     // keep program running
     printf("System running. Press Ctrl+C to stop.\n");
-    display_score(&total_score); // Display score on LED matrix
+    display_score(&total_score, argc, argv); // Display score on LED matrix
 
     // closing program
     matrixCleanup();
