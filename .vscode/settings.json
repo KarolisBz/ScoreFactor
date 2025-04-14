@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "led-matrix.h": "c",
+        "graphics.h": "c",
+        "string.h": "c",
+        "display.h": "c",
+        "cstdlib": "cpp",
+        "pigpio.h": "c",
+        "new": "cpp"
+    }
+}

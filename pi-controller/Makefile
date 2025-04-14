@@ -3,7 +3,7 @@ CC = gcc # aarch64-linux-gnu-gcc
 CFLAGS = -Wall -I./include 
 
 # Linker flags (include pigpio and dependencies)
-LDFLAGS = -lpigpio -lrt -lpthread
+LDFLAGS = -L$(CURDIR)/lib/rpi-rgb-led-matrix/lib -lpigpio -lrt -lpthread -lrgbmatrix
 
 # Directories
 SRC_DIR = src
@@ -32,5 +32,4 @@ $(BUILD_DIR):
 
 # Cleaning up build files and rpi matrix
 clean:
-	$(MAKE) -C $(RGB_LIB_DIR) clean
 	rm -f $(BUILD_DIR)/*.o $(BUILD_DIR)/run

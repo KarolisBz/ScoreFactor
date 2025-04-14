@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include "add.h"
 #include <pigpio.h>
+#include "display.h"
 #include "vibration_sensors.h"
 
 // BCM pin numbering, all vibration pins
@@ -34,12 +35,12 @@ int main() {
     vibration_init(VIBRATION_PIN_S2, &total_score, 2);
     vibration_init(VIBRATION_PIN_S1, &total_score, 1);
 
+    // keep program running
     printf("System running. Press Ctrl+C to stop.\n");
-    while (1) {
-        sleep(1);
-    }
+    display_score(&total_score); // Display score on LED matrix
 
     // closing program
+    matrixCleanup();
     vibration_stop();
     gpioTerminate();
     return 0;
