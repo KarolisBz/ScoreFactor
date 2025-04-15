@@ -2,6 +2,7 @@
 #define GLOBALS_SETTINGS_H
 
 // includes
+#include <stdbool.h>
 #include <stdatomic.h>
 
 // settings

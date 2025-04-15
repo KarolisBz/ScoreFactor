@@ -20,6 +20,11 @@
         "utility": "c",
         "global_settings.h": "c",
         "stdatomic.h": "c",
-        "atomic": "c"
+        "atomic": "c",
+        "globals_settings.h": "c",
+        "stdbool.h": "c",
+        "signal.h": "c",
+        "stdio.h": "c",
+        "stdlib.h": "c"
     }
 }

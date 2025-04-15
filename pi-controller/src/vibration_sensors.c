@@ -14,8 +14,9 @@ static void vibration_callback(int gpio, int level, uint32_t tick)
     int score_reward = sensor_score_per_hit[gpio];
 
     // If the level is high (indicating vibration detection) and debounce time has passed
-    if (level == PI_HIGH && (tick - last_callback_time) > 1000000)
-    { // 1 second debounce time
+    // // 1 second debounce time
+    if (level == PI_HIGH && (tick - last_callback_time) > 1000000 && game_time_seconds > 0)
+    {
         // Update the score
         if (atomic_load(&total_score) + score_reward > MAX_SCORE)
         {
