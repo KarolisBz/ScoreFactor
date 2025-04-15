@@ -9,6 +9,17 @@
         "new": "cpp",
         "sstream": "c",
         "regex": "c",
-        "led-matrix-c.h": "c"
+        "led-matrix-c.h": "c",
+        "*.tcc": "c",
+        "ratio": "c",
+        "system_error": "c",
+        "array": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c",
+        "global_settings.h": "c",
+        "stdatomic.h": "c",
+        "atomic": "c"
     }
 }
